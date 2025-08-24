@@ -1,0 +1,293 @@
+/* ========================================================================== */
+/* Normalization */
+/* ========================================================================== */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  font-size: 100%; /* % is relative to parent's font size */
+  /* vertical-align: baseline; */ /* Uncomment as needed for inline elements */
+}
+
+/* ========================================================================== */
+/* Color palette */
+/* ========================================================================== */
+
+html {
+  --palette-dominant: #622EAA; /* Usage: divs */
+  --palette-dominant-dark: #5415ad; /* Usage: Accessories */
+  --palette-dominant-light: #7d52b9; /* Usage: divs */
+  --palette-contrast: #FC8916; /* Usage: link hover, emphasize, highlight */
+  --palette-accent: #D6D2D2; /* Usage: against the dominant color - borders, decorations  */
+  --palette-dark-gray: #636363; /* Usage: divs, text, shadows */
+  --palette-light-gray: #E2E8F0; /* Usage: shadows */
+}
+
+/* ========================================================================== */
+/* Layout */
+/* ========================================================================== */
+
+main {
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+/* ========================================================================== */
+/* Lists & Navigation */
+/* ========================================================================== */
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+.header-style-1 {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  align-items: center;
+
+  height: 50px;
+  padding: 15px;
+  border-bottom: 1px solid black;
+
+  text-transform: capitalize;
+}
+
+.horizontal-nav {
+  justify-self: end; /* or margin-left: auto */
+}
+.horizontal-nav li {
+  display: inline-block;
+  padding: 0 15px;
+  margin-left: 30px;
+}
+
+/* ========================================================================== */
+/* Text */
+/* ========================================================================== */
+  /* User agent header sizes FYI:
+  h1 2.0
+  h2 1.5
+  h3 1.17
+  h4 1.0
+  h5 0.83
+  h6 0.67 
+  */
+html {
+  font-size: 16px; /* to easily adjust in devtools */
+  font-family: Verdana, Geneva, Tahoma, sans-serif; /* custom font to see what inherits */
+}
+
+h1 {
+  font-size: 2rem;
+  text-shadow: 3px 3px 10px black; /* Usage: title */
+}
+
+p {
+  line-height: 1.5; /* (a) */
+  /* (a) Accessibility guideline per MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/line-height */
+}
+
+.gray-text {
+  color: var(--palette-dark-gray);
+}
+
+.smaller-text {
+  font-size: 0.8rem;
+}
+
+/* ========================================================================== */
+/* Links */
+/* ========================================================================== */
+
+:any-link {
+  color: initial;
+  text-decoration: none;
+}
+
+.link-style-1, /* Usage: main content */
+.link-style-emphasize { /* Usage: draw attention here, e.g. meta content, read more */
+  color: var(--palette-dominant);
+}
+.link-style-1:hover,
+.link-style-emphasize:hover {
+  color: black;
+}
+
+.link-style-emphasize {
+  text-decoration: underline;
+}
+.link-style-emphasize:hover {
+  text-decoration: none; 
+  /* would rather not use revert or unset (they are just weird): https://css-tricks.com/inherit-initial-unset-revert/ */
+}
+
+.link-style-2 { /* Usage: footer content */
+  color: white;
+}
+.link-style-2:hover {
+  color: var(--palette-contrast);
+}
+
+/* ========================================================================== */
+/* Buttons */
+/* ========================================================================== */
+
+.button-style-1 { /* Usage: primary things */
+  cursor: pointer;
+
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  padding: 8px 16px; 
+  border: none;
+  border-radius: 28px; /* modify as needed to achieve "the look" */
+  box-shadow: 3px 3px 10px var(--palette-light-gray);
+  background-color: var(--palette-dominant);
+  color: white;
+}
+.button-style-1:hover {
+  filter: saturate(150%);
+}
+
+.button-style-2 { /* Usage: idk but it's rectangular :3 */
+  cursor: pointer;
+
+  text-transform: capitalize;
+
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  background: var(--palette-dominant);
+  color: white;
+}
+.button-style-2:hover {
+  filter: saturate(150%);
+}
+
+.icon-button {
+  padding-left: 4px;
+}
+.icon-button::before {
+  content: "⭐ ";
+}
+
+/* ========================================================================== */
+/* Form controls */
+/* All there is to know (currently!) https://www.theodinproject.com/lessons/node-path-intermediate-html-and-css-form-basics#assignment */
+/* Created with help from MDN Form Styling Tutorials: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms#form_styling_tutorials */
+/* ========================================================================== */
+
+.input-style-1 { /* Usage: rounded corners for soft look */
+  height: 2rem;
+  padding: 8px 17px;
+  border-radius: calc(2rem / 2);
+  border: none;
+  
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-family: inherit;
+
+  background-color: var(--palette-light-gray);
+}
+.input-style-1:focus {
+  outline: 2px solid #F88E20;
+  outline-offset: 4px; /* tweek as desired */
+}
+
+.input-style-2 { /* Usage: rectangular for a more rigid look */
+  height: 2rem;
+  padding: 8px;
+  border: 1px solid var(--palette-dark-gray);
+  
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-family: inherit;
+}
+.input-style-2:focus {
+  outline: 1px solid black;
+  outline-offset: 0px; /* tweek as desired */
+}
+
+.shadow-focus:focus { 
+  box-shadow: 1px 1px 3px var(--palette-dark-gray);
+}
+
+.textarea-style-1 {
+  width: 100%;
+  padding: 8px;
+}
+
+.checkbox-style-1 {
+  appearance: none;
+
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--palette-dark-gray);
+  border-radius: 2px;
+  /* adjusts the position of the checkboxes on the text baseline */
+  vertical-align: -2px;
+
+  cursor: pointer;
+  color: white;
+  position: relative;
+}
+.checkbox-style-1::before {
+  content: "✔";
+  font-size: 1rem;
+  position: absolute; /* to take out of document flow so :focus does not highlight the invisible checkmark which makes a weird asymmetric figure */
+  top: -0.2rem;
+  visibility: hidden;
+}
+.checkbox-style-1:checked {
+  border-color: transparent;
+  background-color: darkorange;
+}
+.checkbox-style-1:checked::before {
+  visibility: visible;
+}
+.checkbox-style-1:disabled {
+  cursor: revert;
+  border-width: 2px;
+  border-color: gray;
+  background: #dddddd;
+  color: gray;
+}
+
+.select-style-1 {
+  height: 2rem;
+  padding: 4px;
+  margin: 0;
+  border-radius: 4px; /* toggle depending on the vibe */
+
+  background-color: var(--palette-light-gray);
+  box-shadow: inset 1px 1px 3px #cccccc;
+
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.date-style-1 {
+  height: 2rem;
+  padding: 4px;
+  margin: 0;
+  border-radius: 4px; /* toggle depending on the vibe */
+
+  background-color: var(--palette-light-gray);
+  border: 1px solid var(--palette-dark-gray);
+  box-shadow: inset 1px 1px 3px #cccccc;
+
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* ========================================================================== */
+/* Misc. */
+/* ========================================================================== */
+
+/* Style variants using data-* https://developer.mozilla.org/en-US/docs/Web/HTML/How_to/Use_data_attributes#examples */
+
