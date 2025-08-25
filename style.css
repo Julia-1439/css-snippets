@@ -318,8 +318,13 @@ p {
   
   /* move the ink to the center */
   position: relative;
-  top: calc(20px/2 - 6px); 
-  left: calc(20px/2 - 6px);
+  top: calc(100%/2 - 6px); 
+  left: calc(100%/2 - 6px);
+}
+.radio-style-1:disabled {
+  cursor: revert;
+  border-color: #ddd;
+  background: var(--palette-light-gray);
 }
 
 /* ========================================================================== */
