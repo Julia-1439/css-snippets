@@ -235,6 +235,9 @@ p {
   color: white;
   position: relative;
 }
+.checkbox-style-1:active {
+  border-color: black;
+}
 .checkbox-style-1::before {
   content: "✔";
   font-size: 1rem;
