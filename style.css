@@ -291,7 +291,7 @@ p {
   height: 20px; 
   border: 2px solid var(--palette-dark-gray);
   border-radius: 50%;
-  vertical-align: -6px; /* adjusts the position of the button on the text baseline */
+  vertical-align: -10px; /* adjusts the position of the button on the text baseline */
   box-sizing: content-box; /* to simplify the math for centering the ink */
   cursor: pointer;
 
