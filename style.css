@@ -254,10 +254,8 @@ p {
 }
 .checkbox-style-1:disabled {
   cursor: revert;
-  border-width: 2px;
-  border-color: gray;
-  background: #dddddd;
-  color: gray;
+  border-color: #ddd;
+  background: var(--palette-light-gray);
 }
 
 .select-style-1 {
